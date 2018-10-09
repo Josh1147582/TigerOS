@@ -310,6 +310,12 @@ rm -f /boot/*-rescue*
 rm -f /etc/machine-id
 touch /etc/machine-id
 
+# Enable repos added by fedora-workstation-repositories
+dnf config-manager --set-enabled phracek-PyCharm
+dnf config-manager --set-enabled google-chrome
+dnf config-manager --set-enabled rpmfusion-nonfree-nvidia-driver
+dnf config-manager --set-enabled rpmfusion-nonfree-steam
+
 %end
 
 %post --nochroot
@@ -403,6 +409,7 @@ EOF
 aajohan-comfortaa-fonts
 anaconda
 dracut-live
+fedora-workstation-repositories
 glibc-all-langpacks
 grub2-efi
 kernel
